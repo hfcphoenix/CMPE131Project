@@ -1,13 +1,11 @@
-## <remove all of the example text and notes in < > such as this one>
-
 ## Functional Requirements
 
-1. requirement
-2. requirement
-3. requirement
-4. requirement
-5. requirement
-6. requirement
+1. Login
+2. Logout
+3. Create new account
+4. delete account
+5. User home page (user can see messages of users they follow)
+6. Send messages to followers
 7. requirement
 8. requirement
 9. requirement
@@ -17,7 +15,7 @@
 
 ## Non-functional Requirements
 
-1. non-functional
+1. Optimized for 16:9 aspect ratio on chromium browsers
 2. non-functional
 3. non-functional
 4. non-functional
