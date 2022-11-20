@@ -15,8 +15,10 @@
 
 ## Non-functional Requirements
 
+
+
 1. Optimized for 16:9 aspect ratio on chromium browsers
-2. non-functional
+2. Having an anti-bot checking system
 3. non-functional
 4. non-functional
 
