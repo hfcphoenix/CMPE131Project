@@ -19,7 +19,7 @@
 
 1. Optimized for 16:9 aspect ratio on chromium browsers
 2. Having an anti-bot checking system
-3. non-functional
+3. Dark Mode and Light Mode
 4. multilingual accessibility
 
 ## Use Cases
