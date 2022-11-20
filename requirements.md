@@ -18,7 +18,7 @@
 ## Non-functional Requirements
 
 1. non-functional
-2. non-functional
+2. Having an anti-bot checking system
 3. non-functional
 4. non-functional
 
