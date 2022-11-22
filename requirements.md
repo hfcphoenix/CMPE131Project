@@ -24,38 +24,59 @@
 
 ## Use Cases
 
-1. Use Case Name (Should match functional requirement name)
+6. Send Messages to Followers
 
-- **Pre-condition:** <can be a list or short description> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+- **Pre-condition:** The customer is logged in
 
-- **Trigger:** <can be a list or short description> Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.
+- **Trigger:** Customer selects "send tweet/message"
 
 - **Primary Sequence:**
 
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Et sequi incidunt
-  3. Quis aute iure reprehenderit
-  4. ...
-  5. ...
-  6. ...
-  7. ...
-  8. ...
-  9. ...
-  10. <Try to stick to a max of 10 steps>
+  1. System has a text box prompt that customers can enter a message into
+  2. Customer can add and edit text inside the box
+  3. System checks that the message is within the word limit
+  4. Customer can press a send button
+  5. System communicates with servers to upload the message
+  6. System ensures the message can appear on customer profile
+  7. Followers will be able to see the message
 
-- **Primary Postconditions:** <can be a list or short description>
+- **Primary Postconditions:** A message appears that followers can read
 
-- **Alternate Sequence:** <you can have more than one alternate sequence to describe multiple issues that may arise>
+- **Alternate Sequence:**
 
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Ut enim ad minim veniam, quis nostrum e
-  3. ...
+  1. The Customer is unable to send the message
+  2. The message will no send to servers and followers cannot see the message
 
-- **Alternate Sequence <optional>:** <you can have more than one alternate sequence to describe multiple issues that may arise>
+- **Alternate Sequence:**
 
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Ut enim ad minim veniam, quis nostrum e
-  3. ...
+  1. The servers fail to update
+  2. Followers cannot see the message
 
-2. Use Case Name (Should match functional requirement name)
-   ...
+8. Post image with message
+
+- **Pre-condition:** The customer is logged in
+
+- **Trigger:** Customer selects "send tweet/message"
+
+- **Primary Sequence:**
+
+  1. System has a upload image prompt and text box
+  2. Customers can upload multiple image files into the image prompt
+  3. Customer can add and edit text inside a text box
+  4. System checks that the message is within the word limit
+  5. Customer can press a send button
+  6. System communicates with servers to upload the images and message
+  7. System ensures the image and message can appear on customer profile
+  8. Followers will be able to see the images and message
+
+- **Primary Postconditions:** A message appears that followers can read
+
+- **Alternate Sequence:**
+
+  1. The Customer is unable to send the image
+  2. The message will no send to servers and followers cannot see the image
+
+- **Alternate Sequence:**
+
+  1. The servers fail to update
+  2. Followers cannot see the image
