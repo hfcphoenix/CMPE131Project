@@ -6,12 +6,12 @@
 4. delete account
 5. User home page (user can see messages of users they follow)
 6. Send messages to followers
-7. requirement
-8. requirement
-9. requirement
-10. requirement
-11. requirement
-12. requirement
+7. Multiple Sign Up Options (Email, Social Media) (Connect with any external API)
+8. Post image with Message
+9. Delete Post
+10. Password Reset
+11. Character Limit for messages
+12. Users should be able to follow each other
 
 ## Non-functional Requirements
 
@@ -80,3 +80,40 @@
 
   1. The servers fail to update
   2. Followers cannot see the image
+
+9. Delete Post
+- **Pre-condition:** The Customer adds a post
+
+- **Trigger:** Customer selects "delete post"
+
+- **Primary Sequence:**
+
+  1. When the Customer selects the menu next to the post, an option menu is printed 
+  2. Customer selects "delete post"
+  3. System checks for where the post is stored in the database and removes it from the store
+
+- **Primary Postconditions:** A message appears reading "Successful Deletion"
+
+- **Alternate Sequence:**
+
+  1. The Customer is unable to delete their post
+  2. The message will not delete from the database and followers still see the post
+
+10. Password Reset
+- **Pre-condition:** The customer is logged in
+
+- **Trigger:** Customer selects "change my password"
+
+- **Primary Sequence:**
+
+  1. Customer clicks on their profile and a menu drop down appears
+  2. Customer selects "change my password"
+  3. Customer is prompted to enter their old password followed by their new password
+  4. System assigns a new hash for the new password and pairs it with the Customer's login information
+
+- **Primary Postconditions:** A message appears reading "Successful Password Reset"
+
+- **Alternate Sequence:**
+
+  1. The Customer enters the same password as their old one
+  2. The System will prompt to enter a new password
