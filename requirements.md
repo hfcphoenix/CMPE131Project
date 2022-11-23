@@ -6,12 +6,12 @@
 4. delete account
 5. User home page (user can see messages of users they follow)
 6. Send messages to followers
-7. requirement
-8. requirement
+7. Multiple Sign Up Options (Email, Social Media) (Connect with any external API)
+8. Post image with Message
 9. Delete Post
 10. Password Reset
-11. requirement
-12. requirement
+11. Character Limit for messages
+12. Users should be able to follow each other
 
 ## Non-functional Requirements
 
