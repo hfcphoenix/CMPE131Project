@@ -49,38 +49,34 @@
   1. The servers fail to update
   2. Followers cannot see the message
 
-2. Have multiple sign in options such as from email and social media by connecing an external API
+2. Enforce a Character Limit for messages
 
-- **Pre-condition:** The user has loaded the website and enters their username and password in the login section
+- **Pre-condition:** The user has their message written.
 
-- **Trigger:** Clicking the login button
+- **Trigger:** The user has entered more than 140 characters for a message or the user clicks post message
 
 - **Primary Sequence:**
 
-  1. The user sees there is a section for logging in at the top right of the website.
-  2. The user enters their username and password.
-  3. The user clicks the login button.
-  4. The website refreshes with the customized contents of the homepage after the login proccess is succesful.
+  1. The user enters more than 140 charaters in their message.
+  2. Red text will appear on the screen letting the user know that the have gone over the character limit.
+  3. A number showing the amount of extra characters will show up.
+  4. The user deletes enough characters to be within 140 characters or less
+  5. The user clicks on the "post message" button
 
 
-- **Primary Postconditions:** The user is now logged in and the website loads their customized homepage.
-
-- **Alternate Sequence:**
-
-  1. The user sees there is a section for logging in at the top right of the website.
-  2. The user enters their incorrect username or an incorrect password.
-  3. The user clicks the login button.
-  4. The webpage will show a page that shows that the username has entered an incorrect password or username.
-  5. The user reenters their correct credentials.
-  6. The website refreshes with the customized contents of the homepage after the login proccess is succesful.
+- **Primary Postconditions:** The message is posted to their profile.
 
 - **Alternate Sequence:**
+  1. The user enters more than 140 charaters in their message.
+  2. Red text will appear on the screen letting the user know that the have gone over the character limit.
+  3. A number showing the amount of extra characters will show up.
+  4. The user tries to post their message.
+  5. Another popup will show to grab the user's attention stating that the message
+  failed to publish
+  6. The user deletes enough characters to be within 140 characters or less
+  7. The user clicks on the "post message" button
 
-  1. The user clicks the Google login button
-  2. A popup will show with the option to sign in to their Gmail
-  3. The user enters their information
-  4. The user clicks sign in
-  5. The website refreshes with the customized contents of the homepage after the login proccess is succesful
+- **Alternate Sequence:**
 
 3. Post image with message
 
