@@ -3,7 +3,7 @@
 1. Login
 2. Logout
 3. Create new account
-4. delete account
+4. Delete account
 5. User home page (user can see messages of users they follow)
 6. Send messages to followers
 7. Multiple Sign Up Options (Email, Social Media) (Connect with any external API)
@@ -14,9 +14,6 @@
 12. Users should be able to follow each other
 
 ## Non-functional Requirements
-
-
-
 1. Optimized for 16:9 aspect ratio on chromium browsers
 2. Having an anti-bot checking system
 3. Dark Mode and Light Mode
@@ -117,3 +114,31 @@
 
   1. The Customer enters the same password as their old one
   2. The System will prompt to enter a new password
+
+12. Users should be able to follow each other
+
+- **Pre-condition:** The customer is logged in
+
+- **Trigger:** Customer clicks on "add friend" button
+
+- **Primary Sequence:**
+
+  1. Drop down box to search for users appears
+  2. Customer types in name of friend he wants to add and hits search
+  3. A list of matches for users appears on the screen
+  4. Customer then finds the profile, and clicks the "send friend request" button to the right of the name
+  5. System sends a friend request notification to the user that was chosen
+  6. The user who recieved the friend request will get a notification on their home page
+  7. They can click the notification and get the choice to accept or decline it
+
+- **Primary Postconditions:** If the user accepted, they are now added as a friend and their posts will appear on the customers home page
+
+- **Alternate Sequence:**
+
+  1. Customer enters and searches for a person they are already friends with
+  2. When the user is found, the option to "send friend request" will be greyed out
+
+- **Alternate Sequence:**
+
+  1. Customer searches for someone to add that does not exist
+  2. A notice saying "No user found" will appear to notify that name does not exist
