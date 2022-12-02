@@ -25,3 +25,12 @@
   - We finished milestone 1, divided the functional requirements up, created a schedule, and we're now ready to start coding!
   
 ### 2022-12-2 at 10:00
+- Who attended: Henry, Alexander, Marcus, Shubham
+
+- Team updates (15 min)
+  - Henry: rewrote requirement to get HP on milestone 1
+  - Alexander: setup Flask Project (login, database)
+  - Marcus: worked on setting up bootstrap on project for consistent navbar experience 
+  - Shubham: worked on setting up bootstrap on project for consistent navbar experience 
+- Group Progress Summary:
+  - We redid a part of Milestone 1 and divided the features we need to get done
