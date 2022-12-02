@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block mycontent %}
+<p>Please sign in to your account </p>
+
+<form action = "" method = "POST" novalidate> 
+    {{form.hidden_tag()}}
+    <p>{{form.username.label}} <br> {{form.username()}}</p>
+    <p>{{form.password.label}} <br> {{form.password()}}</p>
+    <p>{{form.remember_me.label}} <br> {{form.remember_me()}}</p>
+    <p>{{form.submit()}}</p>
+</form>
+{% endblock %}
+
+<!--
+COMMENTS
+
+<form action="" method="POST" novalidate>
+    - action can be used to redirect to another directory like /example
+    - method can be used for information sending/recieving. POST is for sending info to server
+    - novalidate specifies to HTML to not validate any of the data
+
+-->
