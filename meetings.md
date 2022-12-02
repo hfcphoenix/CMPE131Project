@@ -24,6 +24,4 @@
 - Group Progress Summary:
   - We finished milestone 1, divided the functional requirements up, created a schedule, and we're now ready to start coding!
   
-### 2022-11-26 at 14:00
-
-### 2022-12-3 at 14:00
+### 2022-12-2 at 10:00
