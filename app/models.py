@@ -1,6 +1,5 @@
 from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
-
 from app import login
 from flask_login import UserMixin
 
@@ -22,12 +21,3 @@ class User(db.Model, UserMixin):
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
-
-'''
-COMMENTS
-
-db.session.add(user)
-db.session.commit()
-    - Used to add a user to database
-
-'''

@@ -2,18 +2,24 @@ from app import myapp_obj, db
 from flask import render_template, redirect, flash
 from app.forms import LoginForm, CreateAccountForm
 from app.models import User
-from werkzeug.security import generate_password_hash, check_password_hash # library to generate hash passwords
+from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user, login_required, login_user, logout_user
+
 #-------------------------------------------------------------------------------------------------
+
 @myapp_obj.route('/')
 def home():
     return render_template('base.html')
+
 #-------------------------------------------------------------------------------------------------
+
 @myapp_obj.route('/private')
 @login_required
 def private():
     return 'Hi this is a private page' 
+
 #-------------------------------------------------------------------------------------------------
+
 @myapp_obj.route('/login', methods = ['POST', 'GET'])
 def login():
     current_form = LoginForm()
@@ -34,21 +40,26 @@ def login():
         flash('another quick way to debug')
         print(current_form.username.data, current_form.password.data)
         return redirect('/homepage')
-    a = 1
-    name = 'Carlos'
-    return render_template('login.html', name = name, a = a, form = current_form)
+
+    return render_template('login.html', form = current_form)
+
 #-------------------------------------------------------------------------------------------------
+
 @myapp_obj.route('/homepage', methods = ['POST', 'GET'])
 @login_required
 def homepage():
     return render_template("homepage.html", username = current_user.username)
+
 #-------------------------------------------------------------------------------------------------
+
 @myapp_obj.route('/logout')
 @login_required
 def logout():
-    load_user(current_user)
+    logout_user()
     return redirect('/')
+
 #-------------------------------------------------------------------------------------------------
+
 @myapp_obj.route('/create_account', methods = ['POST', 'GET'])
 def create_account():
     current_form = CreateAccountForm()
@@ -71,7 +82,9 @@ def create_account():
         return redirect('/login')
     
     return render_template('create_account.html', form = current_form)
+
 #-------------------------------------------------------------------------------------------------
+
 '''
 COMMENTS
 

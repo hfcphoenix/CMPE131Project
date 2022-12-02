@@ -4,7 +4,7 @@
          <title>Friend Center</title>
      </head>
      <body>
-        {% block mycontent %}{% endblock %} <!-- Since login.html extends base, it will use this HTML file and place login's block contents wherever its specified in this file -->
+        {% block mycontent %}{% endblock %}
         {% with messages = get_flashed_messages() %}
         {% if messages %}
             <ul>
@@ -16,3 +16,11 @@
        {% endwith %}
      </body>
 </html>
+
+<!--
+COMMENTS 
+
+% block mycontent % % endblock % 
+  - is where the HTML extensions will be placed
+
+-->

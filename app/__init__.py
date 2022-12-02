@@ -1,9 +1,9 @@
-from flask import Flask # grab flask class to use for our object
-import os # import for database
+from flask import Flask
+import os
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 
-myapp_obj = Flask(__name__) # create instance of flask class object
+myapp_obj = Flask(__name__)
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -19,4 +19,4 @@ login = LoginManager(myapp_obj)
 
 login.login_view = 'login'
 
-from app import routes, models # makes init be able to see our routes
+from app import routes, models
