@@ -1,17 +1,17 @@
 ## Functional Requirements
 
-1. Login
-2. Logout
-3. Create new account
-4. Delete account
-5. User home page (user can see messages of users they follow)
-6. Send messages to followers
-7. Multiple Sign Up Options (Email, Social Media) (Connect with any external API)
-8. Post image with Message
-9. Delete Post
-10. Password Reset
-11. Character Limit for messages
-12. Users should be able to follow each other
+1. Login = Henry
+2. Logout sceen = Alexander
+3. Create new account = Alexander
+4. Delete Account = Marcus
+5. User home page (user can see messages of users they follow) = Marcus
+6. Send message to followers  = Alexander
+7. Multiple Sign Up Options (Email, Social Media) (Connect with any external API) = Shubham
+8. Post image with Message = Shubham
+9. Delete Post = Shubham
+10. Password Reset = Marcus
+11. Character Limit for messages = Henry
+12. Users should be able to follow each other = Henry
 
 ## Non-functional Requirements
 1. Optimized for 16:9 aspect ratio on chromium browsers
@@ -25,14 +25,14 @@
 
 - **Pre-condition:** The user is logged in
 
-- **Trigger:** user selects "send tweet/message"
+- **Trigger:** User selects "send tweet/message"
 
 - **Primary Sequence:**
 
   1. System has a text box prompt that users can enter a message into
-  2. user can add and edit text inside the box
+  2. User can add and edit text inside the box
   3. System checks that the message is within the word limit
-  4. user can press a send button
+  4. User can press a send button
   5. System communicates with servers to upload the message
   6. System ensures the message can appear on user profile
   7. Followers will be able to see the message
@@ -82,15 +82,15 @@
 
 - **Pre-condition:** The user is logged in
 
-- **Trigger:** user selects "send tweet/message"
+- **Trigger:** User selects "send tweet/message"
 
 - **Primary Sequence:**
 
   1. System has a upload image prompt and text box
-  2. users can upload multiple image files into the image prompt
-  3. user can add and edit text inside a text box
+  2. Users can upload multiple image files into the image prompt
+  3. User can add and edit text inside a text box
   4. System checks that the message is within the word limit
-  5. user can press a send button
+  5. User can press a send button
   6. System communicates with servers to upload the images and message
   7. System ensures the image and message can appear on user profile
   8. Followers will be able to see the images and message
@@ -110,12 +110,12 @@
 4. Delete Post
 - **Pre-condition:** The user adds a post
 
-- **Trigger:** user selects "delete post"
+- **Trigger:** User selects "delete post"
 
 - **Primary Sequence:**
 
   1. When the user selects the menu next to the post, an option menu is printed 
-  2. user selects "delete post"
+  2. User selects "delete post"
   3. System checks for where the post is stored in the database and removes it from the store
 
 - **Primary Postconditions:** A message appears reading "Successful Deletion"
@@ -128,13 +128,13 @@
 5. Password Reset
 - **Pre-condition:** The user is logged in
 
-- **Trigger:** user selects "change my password"
+- **Trigger:** User selects "change my password"
 
 - **Primary Sequence:**
 
-  1. user clicks on their profile and a menu drop down appears
-  2. user selects "change my password"
-  3. user is prompted to enter their old password followed by their new password
+  1. User clicks on their profile and a menu drop down appears
+  2. User selects "change my password"
+  3. User is prompted to enter their old password followed by their new password
   4. System assigns a new hash for the new password and pairs it with the user's login information
 
 - **Primary Postconditions:** A message appears reading "Successful Password Reset"
@@ -148,14 +148,14 @@
 
 - **Pre-condition:** The user is logged in
 
-- **Trigger:** user clicks on "add friend" button
+- **Trigger:** User clicks on "add friend" button
 
 - **Primary Sequence:**
 
   1. Drop down box to search for users appears
-  2. user types in name of friend he wants to add and hits search
+  2. User types in name of friend he wants to add and hits search
   3. A list of matches for users appears on the screen
-  4. user then finds the profile, and clicks the "send friend request" button to the right of the name
+  4. User then finds the profile, and clicks the "send friend request" button to the right of the name
   5. System sends a friend request notification to the user that was chosen
   6. The user who recieved the friend request will get a notification on their home page
   7. They can click the notification and get the choice to accept or decline it
@@ -164,10 +164,10 @@
 
 - **Alternate Sequence:**
 
-  1. user enters and searches for a person they are already friends with
+  1. User enters and searches for a person they are already friends with
   2. When the user is found, the option to "send friend request" will be greyed out
 
 - **Alternate Sequence:**
 
-  1. user searches for someone to add that does not exist
+  1. User searches for someone to add that does not exist
   2. A notice saying "No user found" will appear to notify that name does not exist
