@@ -1,5 +1,11 @@
 {% extends "base.html" %}
-
+{% block title %} Homepage {% endblock %}
 {% block mycontent %}
 <p>Welcome back {{username}}!</p>
+<a href = "logout">
+<button> logout </button>
+</a>
+<a href = "delete/{{current_user.id}}">
+<button> Delete Account </button>
+</a>
 {% endblock %}
