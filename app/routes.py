@@ -84,7 +84,15 @@ def create_account():
     return render_template('create_account.html', form = current_form)
 
 #-------------------------------------------------------------------------------------------------
-
+@myapp_obj.route('/delete/<int:id>')
+@login_required
+def delete_account(id):
+    if id == current_user.id:
+        db.session.delete(current_user)
+        db.session.commit()
+        return redirect('/create_account')
+    else:
+        return("Sorry didn't work")
 '''
 COMMENTS
 
