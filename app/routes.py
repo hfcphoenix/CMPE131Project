@@ -1,9 +1,11 @@
 from app import myapp_obj, db
-from flask import render_template, redirect, flash
+from flask import render_template, redirect, flash, request
 from app.forms import LoginForm, CreateAccountForm
-from app.models import User
+from app.models import User, Post
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user, login_required, login_user, logout_user
+
+
 
 #-------------------------------------------------------------------------------------------------
 
@@ -48,7 +50,8 @@ def login():
 @myapp_obj.route('/homepage', methods = ['POST', 'GET'])
 @login_required
 def homepage():
-    return render_template("homepage.html", username = current_user.username)
+    posts = Post.query.all()
+    return render_template("homepage.html", username = current_user.username, posts=posts)
 
 #-------------------------------------------------------------------------------------------------
 
@@ -56,7 +59,7 @@ def homepage():
 @login_required
 def logout():
     logout_user()
-    return redirect('/')
+    return('Logged Out')
 
 #-------------------------------------------------------------------------------------------------
 
@@ -93,6 +96,23 @@ def delete_account(id):
         return redirect('/create_account')
     else:
         return("Sorry didn't work")
+#-------------------------------------------------------------------------------------------------
+@myapp_obj.route('/create_post', methods=['GET', 'POST'])
+@login_required
+def create_post():
+    if request.method == "POST":
+        text = request.form.get('text')
+
+        if not text:
+            flash('Post cannot be empty', category='error')
+        else:
+            post = Post(text=text, author=current_user.id)
+            db.session.add(post)
+            db.session.commit()
+            flash('Post created!', category='success')
+            return redirect('/homepage')
+    
+    return render_template('create_post.html', user=current_user)
 '''
 COMMENTS
 
