@@ -10,7 +10,7 @@
 8. Post image with Message = Shubham
 9. Delete Post = Shubham
 10. Password Reset = Marcus
-11. Character Limit for messages = Henry
+11. Search = Henry
 12. Users should be able to follow each other = Henry
 
 ## Non-functional Requirements
@@ -23,31 +23,22 @@
 
 1. Send Messages to Followers
 
-- **Pre-condition:** The user is logged in
+- **Pre-condition:** The user needs to be logged in
 
 - **Trigger:** User selects "send tweet/message"
 
 - **Primary Sequence:**
 
-  1. System has a text box prompt that users can enter a message into
-  2. User can add and edit text inside the box
-  3. System checks that the message is within the word limit
-  4. User can press a send button
-  5. System communicates with servers to upload the message
-  6. System ensures the message can appear on user profile
-  7. Followers will be able to see the message
+  1. The user will add and edit text inside a text box prompt
+  2. When the user is satisified with what they have written, the user presses a send/submit button to publish their message
 
-- **Primary Postconditions:** A message appears that followers can read
+- **Primary Postconditions:** The user's followers will be able to see the new message
 
 - **Alternate Sequence:**
 
-  1. The user is unable to send the message
-  2. The message will no send to servers and followers cannot see the message
-
-- **Alternate Sequence:**
-
-  1. The servers fail to update
-  2. Followers cannot see the message
+  1. The user will add and edit text inside a text box prompt
+  2. The user doesn't want to end up publishing their message, so they click a discard button to cancel publishing their message.
+  3. The user will verify that they want to cancel publishing their message after seeing that their message content won't be saved.
 
 2. Enforce a Character Limit for messages
 
