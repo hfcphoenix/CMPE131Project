@@ -8,4 +8,12 @@
 <a href = "delete/{{current_user.id}}">
 <button> Delete Account </button>
 </a>
+<a href = "create_post">
+    <button>Create Post</button>
+</a>
+<p>Posts:</p>
+{% for post in posts %}
+{{ post.text }}
+{% endfor %}
+
 {% endblock %}

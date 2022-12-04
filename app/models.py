@@ -8,7 +8,8 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String, unique = True)
     password = db.Column(db.String(200))
     email = db.Column(db.String(32), unique = True)
-
+    posts = db.relationship('Post', backref='user', passive_deletes=True)
+    
     def set_password(self, password):
         self.password = generate_password_hash(password)
 
@@ -17,7 +18,10 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         return f'<User {self.username}>'
-        
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    text = db.Column(db.Text, nullable = False)
+    author = db.Column(db.Integer, db.ForeignKey('user.id', ondelete="CASCADE"), nullable=False)
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
