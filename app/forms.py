@@ -13,3 +13,7 @@ class CreateAccountForm(FlaskForm):
     username = StringField('Username', validators = [DataRequired()])
     password = PasswordField('Password', validators = [DataRequired()])
     submit = SubmitField('Create Account')
+
+class UpdatePasswordForm(FlaskForm):
+    password = PasswordField('Password', validators = [DataRequired()])
+    submit = SubmitField('Update Account')

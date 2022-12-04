@@ -1,6 +1,6 @@
 from app import myapp_obj, db
 from flask import render_template, redirect, flash, request
-from app.forms import LoginForm, CreateAccountForm
+from app.forms import LoginForm, CreateAccountForm, UpdatePasswordForm
 from app.models import User, Post
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user, login_required, login_user, logout_user
@@ -40,8 +40,7 @@ def login():
 
         # login user
         login_user(user, remember=current_form.remember_me.data)
-        flash('quick way to debug')
-        flash('another quick way to debug')
+        
         print(current_form.username.data, current_form.password.data)
         return redirect('/homepage')
 
@@ -137,7 +136,23 @@ def create_post():
             return redirect('/homepage')
 
     return render_template('create_post.html', user=current_user)
+# -------------------------------------------------------------------------------------------------
+@myapp_obj.route('/update_password/<int:id>', methods=['GET', 'POST'])
+@login_required
+def update_password(id):
+    form = UpdatePasswordForm()
+    name_to_update = User.query.get_or_404(id)
 
+    if request.method == "POST":
+        name_to_update.password = request.form['password']
+        name_to_update.password = generate_password_hash(name_to_update.password)
+    
+        db.session.commit()
+        flash("Update Successful")
+
+    return render_template("/update_password.html", form=form, name_to_update = name_to_update)
+
+        
 
 '''
 COMMENTS
