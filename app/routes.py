@@ -108,16 +108,16 @@ def delete_account(id):
 # -------------------------------------------------------------------------------------------------
 
 
-@myapp_obj.route('/delete/<int:id>')
+@myapp_obj.route('/delete_post/<int:id>')
 @login_required
 def delete_post(id):
     post = Post.query.filter_by(id=id).first()
-    if post.id != current_user.id:
+    if post.author != current_user.id:
         return ("you dont have access")
     else:
         db.session.delete(post)
         db.session.commit()
-        return ("Couldn't delete post")
+        return redirect('/create_post')
 # -------------------------------------------------------------------------------------------------
 
 
