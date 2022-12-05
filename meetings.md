@@ -34,3 +34,14 @@
   - Shubham: worked on setting up bootstrap on project for consistent navbar experience 
 - Group Progress Summary:
   - We redid a part of Milestone 1 and divided the features we need to get done
+
+### 2022-12-3 at 17:00
+- Who attended: Henry, Alexander, Marcus, Shubham
+
+- Team updates (15 min)
+  - Henry: Submitted new requirement
+  - Alexander: Reviewed repository and tested all features implemented so far, researched flash messages for visual ways to show errors, and ensured all people's environments are running
+  - Marcus: worked on adding delete_post method 
+  - Shubham: worked on adding posting table and delete_account
+- Group Progress Summary:
+  - We looked through requirements to see what we still needed to do and divided accordingly.

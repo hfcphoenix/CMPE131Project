@@ -11,6 +11,9 @@
 <a href = "create_post">
     <button>Create Post</button>
 </a>
+<a href = "update_password/{{current_user.id}}">
+    <button>Update Password</button>
+</a>
 <p>Posts:</p>
 {% for post in posts %}
 {{ post.text }}
