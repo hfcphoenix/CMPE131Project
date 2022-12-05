@@ -1,10 +1,9 @@
 from app import myapp_obj, db
 from flask import render_template, redirect, flash, request
-from app.forms import LoginForm, CreateAccountForm
+from app.forms import LoginForm, CreateAccountForm, UpdatePasswordForm
 from app.models import User, Post
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user, login_required, login_user, logout_user
-
 
 # -------------------------------------------------------------------------------------------------
 
@@ -14,14 +13,12 @@ def home():
 
 # -------------------------------------------------------------------------------------------------
 
-
 @myapp_obj.route('/private')
 @login_required
 def private():
     return 'Hi this is a private page'
 
 # -------------------------------------------------------------------------------------------------
-
 
 @myapp_obj.route('/login', methods=['POST', 'GET'])
 def login():
@@ -40,15 +37,12 @@ def login():
 
         # login user
         login_user(user, remember=current_form.remember_me.data)
-        flash('quick way to debug')
-        flash('another quick way to debug')
         print(current_form.username.data, current_form.password.data)
         return redirect('/homepage')
 
     return render_template('login.html', form=current_form)
 
 # -------------------------------------------------------------------------------------------------
-
 
 @myapp_obj.route('/homepage', methods=['POST', 'GET'])
 @login_required
@@ -58,7 +52,6 @@ def homepage():
 
 # -------------------------------------------------------------------------------------------------
 
-
 @myapp_obj.route('/logout')
 @login_required
 def logout():
@@ -66,7 +59,6 @@ def logout():
     return ('Logged Out')
 
 # -------------------------------------------------------------------------------------------------
-
 
 @myapp_obj.route('/create_account', methods=['POST', 'GET'])
 def create_account():
@@ -95,7 +87,6 @@ def create_account():
 
 # -------------------------------------------------------------------------------------------------
 
-
 @myapp_obj.route('/delete/<int:id>')
 @login_required
 def delete_account(id):
@@ -106,7 +97,6 @@ def delete_account(id):
     else:
         return ("Sorry didn't work")
 # -------------------------------------------------------------------------------------------------
-
 
 @myapp_obj.route('/delete_post/<int:id>')
 @login_required
@@ -119,7 +109,6 @@ def delete_post(id):
         db.session.commit()
         return redirect('/create_post')
 # -------------------------------------------------------------------------------------------------
-
 
 @myapp_obj.route('/create_post', methods=['GET', 'POST'])
 @login_required
@@ -138,10 +127,26 @@ def create_post():
 
     return render_template('create_post.html', user=current_user)
 
+# -------------------------------------------------------------------------------------------------
 
+@myapp_obj.route('/update_password/<int:id>', methods=['GET', 'POST'])
+@login_required
+def update_password(id):
+    form = UpdatePasswordForm()
+    name_to_update = User.query.get_or_404(id)
+
+    if request.method == "POST":
+        name_to_update.password = request.form['password']
+        name_to_update.password = generate_password_hash(name_to_update.password)
+    
+        db.session.commit()
+        flash("Update Successful")
+
+    return render_template("/update_password.html", form=form, name_to_update = name_to_update)
+
+# -------------------------------------------------------------------------------------------------
 '''
 COMMENTS
-
  return render_template('login.html', name=name, a=a, form=current_form)
     - Renders the HTML file and returns it to the route, passing in the given variables
       which will then be interpreted by the {{ variable }} spots in the HTML file
