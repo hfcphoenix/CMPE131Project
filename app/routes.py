@@ -37,7 +37,6 @@ def login():
 
         # login user
         login_user(user, remember=current_form.remember_me.data)
-        
         print(current_form.username.data, current_form.password.data)
         return redirect('/homepage')
 
@@ -97,7 +96,6 @@ def delete_account(id):
         return redirect('/create_account')
     else:
         return ("Sorry didn't work")
-
 # -------------------------------------------------------------------------------------------------
 
 @myapp_obj.route('/delete_post/<int:id>')
@@ -110,7 +108,6 @@ def delete_post(id):
         db.session.delete(post)
         db.session.commit()
         return redirect('/create_post')
-
 # -------------------------------------------------------------------------------------------------
 
 @myapp_obj.route('/create_post', methods=['GET', 'POST'])
