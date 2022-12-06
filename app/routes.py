@@ -29,8 +29,8 @@ def add_following():
             return redirect('/homepage')
         else:
             flash("User doesn't exist")
-            return redirect('/add_following')
-       
+            return redirect('/add_following')   
+
 
     return render_template('add_following.html', form = current_form, user=user)
 
@@ -145,19 +145,21 @@ def logout():
 @login_required
 def remove_following():
     current_form = RemoveFollowingForm()
-
-    if current_form.validate_on_submit():
-        user_to_remove_follow = User.query.filter_by(username = current_form.username.data).first()
+    user = User.query.all()
+    
+    if request.method == "POST":
+        option = request.form.get('users')
+        user_to_remove_follow = User.query.filter_by(username = option).first()
 
         if user_to_remove_follow:
             current_user.unfollow(user_to_remove_follow)
             db.session.commit()
             return redirect('/homepage')
         else:
-            flash('User does not exist')
+            flash("User doesn't exist")
             return redirect('/remove_following')
 
-    return render_template('remove_following.html', form = current_form)
+    return render_template('remove_following.html', form = current_form, user=user)
 
 # -------------------------------------------------------------------------------------------------
 

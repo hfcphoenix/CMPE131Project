@@ -5,9 +5,13 @@
 {% block mycontent %}
 <p>Remove a person you are following</p>
 
-<form action = "" method = "POST" novalidate> 
-    {{form.hidden_tag()}}
-    <p>{{form.username.label}} <br> {{form.username()}}</p>
-    <p>{{form.submit()}}</p>
+<form action = "" method = "POST"> 
+    <input type="text" name="users" list="users"/>
+    <datalist id="users">
+        {% for user in user %}
+        <option>{{user.username}}</option>
+        {% endfor %}
+    </datalist>
+    <button type="submit">UnFollow</button>
 </form>
 {% endblock %}
