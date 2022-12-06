@@ -8,6 +8,10 @@ IMPORTANT NOTES
   -pip3 install flask
   -pip3 install flask-wtf flask sqlalchemy flask-login
   -pip3 install email_validator
+  -pip3 install flask-migrate (for adding followers/following db)
+    -flask db init
+    -flask db migrate -m "followers"
+    -flask db upgrade
 
 - Install SQLiteBrowser using one of the methods described in https://sqlitebrowser.org/dl/
   in order to view the database (db) file

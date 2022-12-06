@@ -1,7 +1,10 @@
 {% extends "base.html" %}
+
 {% block title %} Homepage {% endblock %}
+
 {% block mycontent %}
 <p>Welcome back {{username}}!</p>
+
 <a href = "logout">
 <button> logout </button>
 </a>
@@ -14,9 +17,26 @@
 <a href = "update_password/{{current_user.id}}">
     <button>Update Password</button>
 </a>
+<a href = "add_following">
+    <button>Follow Someone</button>
+</a>
+<a href = "remove_following">
+    <button>Stop Following Someone</button>
+</a>
+
 <p>Posts:</p>
 {% for post in posts %}
 {{ post.text }}
+<br>
+<div class="btn-group col">
+    <button
+        type = "button"
+        class="btn btn-sm btn-primary dropdown-toggle"
+        data-bs-toggle="dropdown">
+    </button>
+    <ul class ="dropdown-menu">
+        <li><a href="/delete_post/{{post.id}}" class ="dropdown-item">Delete Post</a></li>
+    </ul> 
+</div>
 {% endfor %}
-
 {% endblock %}
