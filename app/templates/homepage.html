@@ -17,11 +17,18 @@
 <a href = "update_password/{{current_user.id}}">
     <button>Update Password</button>
 </a>
+<a href = "add_following">
+    <button>Follow Someone</button>
+</a>
+<a href = "remove_following">
+    <button>Stop Following Someone</button>
+</a>
 
 <p>Posts:</p>
 {% for post in posts %}
 {{ post.text }}
-<div class="btn-group">
+<br>
+<div class="btn-group col">
     <button
         type = "button"
         class="btn btn-sm btn-primary dropdown-toggle"

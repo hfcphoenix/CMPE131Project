@@ -1,16 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %} Create an Account {% endblock %}
+{% block title %} Follow someone {% endblock %}
 
 {% block mycontent %}
-<p>Create Account</p>
+<p>Follow a User</p>
 
 <form action = "" method = "POST" novalidate> 
     {{form.hidden_tag()}}
-    <p>{{form.email.label}} <br> {{form.email()}}</p>
     <p>{{form.username.label}} <br> {{form.username()}}</p>
-    <p>{{form.password.label}} <br> {{form.password()}}</p>
     <p>{{form.submit()}}</p>
-    {{form.recaptcha}}
 </form>
 {% endblock %}
