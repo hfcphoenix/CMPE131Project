@@ -17,19 +17,22 @@ def home():
 @login_required
 def add_following():
     current_form = AddFollowingForm()
+    user = User.query.all()
 
-    if current_form.validate_on_submit():
-        user_to_follow = User.query.filter_by(username = current_form.username.data).first()
+    if request.method == "POST":
+        option = request.form.get('users')
+        user_to_follow = User.query.filter_by(username = option).first()
 
         if user_to_follow:
             current_user.follow(user_to_follow)
             db.session.commit()
             return redirect('/homepage')
         else:
-            flash('User does not exist')
+            flash("User doesn't exist")
             return redirect('/add_following')
+       
 
-    return render_template('add_following.html', form = current_form)
+    return render_template('add_following.html', form = current_form, user=user)
 
 # -------------------------------------------------------------------------------------------------
 
