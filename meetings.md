@@ -35,7 +35,7 @@
 - Group Progress Summary:
   - We redid a part of Milestone 1 and divided the features we need to get done
 
-### 2022-12-3 at 17:00
+### 2022-12-4 at 17:00
 - Who attended: Henry, Alexander, Marcus, Shubham
 
 - Team updates (15 min)

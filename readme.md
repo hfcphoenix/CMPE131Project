@@ -1,5 +1,5 @@
-# Project Name
+# IRL Patch
 - Alexander Pereira (@50xp50)
 - Shubham Mishra (@shubhammishra-2020) - Team Lead
-- Henry (@hfcphoenix)
-- Marcus (@MarcoPolo987)
+- Henry Choy (@hfcphoenix)
+- Marcus Lang (@MarcoPolo987)
