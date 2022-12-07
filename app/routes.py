@@ -54,9 +54,13 @@ def create_account():
 
         new_user = User(email = current_form.email.data, username = current_form.username.data,
                         password = generate_password_hash(current_form.password.data))
+
         db.session.add(new_user)
         db.session.commit()
-        return redirect('/login')
+        login_user(new_user)
+        current_user.follow(current_user)
+        db.session.commit()
+        return redirect('/homepage')
 
     return render_template('create_account.html', form = current_form)
 
@@ -71,7 +75,7 @@ def create_post():
         if not text:
             flash('Post cannot be empty', category = 'error')
         else:
-            post = Post(text = text, author = current_user.id)
+            post = Post(text = text, author_id = current_user.id, author_str = current_user.username)
             db.session.add(post)
             db.session.commit()
             flash('Post created!', category = 'success')
@@ -97,8 +101,9 @@ def delete_account(id):
 @login_required
 def delete_post(id):
     post = Post.query.filter_by(id = id).first()
-    if post.author != current_user.id:
-        return ("you dont have access")
+    if post.author_id != current_user.id:
+        flash('Cannot delete this post')
+        return redirect('/homepage')
     else:
         db.session.delete(post)
         db.session.commit()
@@ -109,7 +114,8 @@ def delete_post(id):
 @myapp_obj.route('/homepage', methods = ['POST', 'GET'])
 @login_required
 def homepage():
-    posts = Post.query.all()
+    #posts = Post.query.all()
+    posts = current_user.followed_posts()
     return render_template("homepage.html", username = current_user.username, posts = posts)
 
 # -------------------------------------------------------------------------------------------------
