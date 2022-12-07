@@ -3,40 +3,53 @@
 {% block title %} Homepage {% endblock %}
 
 {% block mycontent %}
+
 <p>Welcome back {{username}}!</p>
 
 <a href = "logout">
 <button> logout </button>
 </a>
+
 <a href = "delete/{{current_user.id}}">
 <button> Delete Account </button>
 </a>
+
 <a href = "create_post">
     <button>Create Post</button>
 </a>
+
 <a href = "update_password/{{current_user.id}}">
     <button>Update Password</button>
 </a>
+
 <a href = "add_following">
     <button>Follow Someone</button>
 </a>
+
 <a href = "remove_following">
     <button>Stop Following Someone</button>
 </a>
 
 <p>Posts:</p>
+
 {% for post in posts %}
-{{ post.text }}
-<br>
-<div class="btn-group col">
+
+<div class = "card border-primary mb-3" style = "display:block; margin: 5px 20px 5px 20px">
+  <div class = "card-body">
+    <h5 class = "card-title" style = "display:inline">{{ post.author_str }}</h5> <div class = "btn-group col">
     <button
         type = "button"
-        class="btn btn-sm btn-primary dropdown-toggle"
-        data-bs-toggle="dropdown">
+        class = "btn btn-sm btn-secondary dropdown-toggle py-0 my-1"
+        data-bs-toggle = "dropdown">
     </button>
-    <ul class ="dropdown-menu">
-        <li><a href="/delete_post/{{post.id}}" class ="dropdown-item">Delete Post</a></li>
+    <ul class = "dropdown-menu">
+        <li><a href = "/delete_post/{{post.id}}" class = "dropdown-item">Delete Post</a></li>
     </ul> 
+    </div>
+    <h6 class = "card-subtitle mb-2 text-muted">{{ post.timestamp }}</h6>
+    <p class = "card-text">{{ post.text }}</p>
+  </div>
 </div>
+
 {% endfor %}
 {% endblock %}
