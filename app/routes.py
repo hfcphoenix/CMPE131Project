@@ -72,17 +72,20 @@ def create_account():
 @login_required
 def create_post():
     if request.method == "POST":
-        text = request.form.get('text')
         file = request.files['posted']
-        if not text:
+        text = request.form.get('text')
+        
+        if text == ' ':
+            print('we here')
             flash('Post cannot be empty', category = 'error')
         
-        if file:
+        elif file:
             post_with_image = Post(text = text, author_id = current_user.id, author_str = current_user.username, image_name = file.filename, image = file.read())
             db.session.add(post_with_image)
             db.session.commit()
             flash('Post created!', category = 'success')
             return redirect('/homepage')
+
         else:
             post = Post(text = text, author_id = current_user.id, author_str = current_user.username, image_name = None, image = None)
             db.session.add(post)
