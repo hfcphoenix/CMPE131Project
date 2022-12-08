@@ -50,6 +50,8 @@ class User(db.Model, UserMixin):
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     text = db.Column(db.Text, nullable = False)
+    image_name = db.Column(db.String(50))
+    image = db.Column(db.LargeBinary)
     author_id = db.Column(db.Integer, db.ForeignKey('user.id', ondelete = "CASCADE"), nullable = False)
     author_str = db.Column(db.String)
     timestamp = db.Column(db.DateTime, index = True, default = datetime.utcnow)
