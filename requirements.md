@@ -1,17 +1,17 @@
 ## Functional Requirements
 
-1. Login = Henry
-2. Logout sceen = Alexander
-3. Create new account = Alexander
-4. Delete Account = Marcus
-5. User home page (user can see messages of users they follow) = Marcus
-6. Send message to followers  = Alexander
-7. Multiple Sign Up Options (Email, Social Media) (Connect with any external API) = Shubham
-8. Post image with Message = Shubham
-9. Delete Post = Shubham
-10. Password Reset = Marcus
-11. Search = Henry
-12. Users should be able to follow each other = Henry
+1. Login = Alexander ✓
+2. Logout sceen = Alexander ✓
+3. Create new account = Alexander ✓
+4. Delete Account = Shubham ✓
+5. User home page (user can see messages of users they follow) = Marcus, Alexander, Henry, & Shubham ✓
+6. Send message to followers  = Alexander ✓
+7. Multiple Sign Up Options (Email, Social Media) (Connect with any external API) = Henry or Marcus X
+8. Post image with Message = Marcus and Shubham ✓
+9. Delete Post = Marcus and Henry ✓
+10. Password Reset = Shubham ✓
+11. Search for other Users = Henry or Marcus X
+12. Users should be able to follow each other = Alexander and Shubham ✓
 
 ## Non-functional Requirements
 1. Optimized for 16:9 aspect ratio on chromium browsers
@@ -40,34 +40,28 @@
   2. The user doesn't want to end up publishing their message, so they click a discard button to cancel publishing their message.
   3. The user will verify that they want to cancel publishing their message after seeing that their message content won't be saved.
 
-2. Enforce a Character Limit for messages
+2. Search for other Users
 
-- **Pre-condition:** The user has their message written.
+- **Pre-condition:** The user needs to be logged in.
 
-- **Trigger:** The user has entered more than 140 characters for a message or the user clicks post message
+- **Trigger:** The user needs to click on the search bar on our website.
 
 - **Primary Sequence:**
 
-  1. The user enters more than 140 charaters in their message.
-  2. Red text will appear on the screen letting the user know that the have gone over the character limit.
-  3. A number showing the amount of extra characters will show up.
-  4. The user deletes enough characters to be within 140 characters or less
-  5. The user clicks on the "post message" button
+  1. The user enters the full username of the other user that they're is looking for.
+  2. Assuming that username exists, the user will see that user show up as one of the results.
+  3. The user finds the user profile that they're looking for. 
 
-
-- **Primary Postconditions:** The message is posted to their profile.
+- **Primary Postconditions:** The user will click on the user profile that they were looking for which will load that user's profile.
 
 - **Alternate Sequence:**
-  1. The user enters more than 140 charaters in their message.
-  2. Red text will appear on the screen letting the user know that the have gone over the character limit.
-  3. A number showing the amount of extra characters will show up.
-  4. The user tries to post their message.
-  5. Another popup will show to grab the user's attention stating that the message
-  failed to publish
-  6. The user deletes enough characters to be within 140 characters or less
-  7. The user clicks on the "post message" button
+  1. The user enters a part of the username of the other user that they're is looking for.
+  2. Assuming that username exists, the user will see that the profile that they're looking for show up as one of the results after enough characters of the username has been entered.
+  3. The user finds the user profile that they're looking for.
 
 - **Alternate Sequence:**
+  1. The user enters a part of the username of the other user that they're is looking for. 
+  2. If there is no username that matches what is entered, the website will display a message stating that there are no accounts that use this username.
 
 3. Post image with message
 
