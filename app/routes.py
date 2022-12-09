@@ -4,8 +4,6 @@ from app.forms import *
 from app.models import *
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user, login_required, login_user, logout_user
-from PIL import Image
-import uuid
 
 # -------------------------------------------------------------------------------------------------
 
