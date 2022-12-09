@@ -4,6 +4,8 @@ from app.forms import *
 from app.models import *
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user, login_required, login_user, logout_user
+from PIL import Image
+import uuid
 
 # -------------------------------------------------------------------------------------------------
 
@@ -70,12 +72,22 @@ def create_account():
 @login_required
 def create_post():
     if request.method == "POST":
+        file = request.files['posted']
         text = request.form.get('text')
-
-        if not text:
+        
+        if text == ' ':
+            print('we here')
             flash('Post cannot be empty', category = 'error')
+        
+        elif file:
+            post_with_image = Post(text = text, author_id = current_user.id, author_str = current_user.username, image_name = file.filename, image = file.read())
+            db.session.add(post_with_image)
+            db.session.commit()
+            flash('Post created!', category = 'success')
+            return redirect('/homepage')
+
         else:
-            post = Post(text = text, author_id = current_user.id, author_str = current_user.username)
+            post = Post(text = text, author_id = current_user.id, author_str = current_user.username, image_name = None, image = None)
             db.session.add(post)
             db.session.commit()
             flash('Post created!', category = 'success')

@@ -3,8 +3,10 @@
 {% block title %} Create Post {% endblock %}
 
 {% block mycontent %}
-<form action="" method="POST">
+<form action="" method="POST", enctype="multipart/form-data">
     <textarea name="text" id="text" class="form-control"> </textarea>
-        <button type="submit" class="btn btn-primary">Post</button>
+    <input type="file" id="posted" name="posted" accept="image/png, image/gif, image/jpeg">
+    <br>
+    <button type="submit" class="btn btn-primary">Post</button>
 </form>
 {% endblock %}

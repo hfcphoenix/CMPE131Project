@@ -13,7 +13,7 @@ myapp_obj.config.update(
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db'),
     SQLALCHEMY_TRACK_MODIFICATIONS = False,
     RECAPTCHA_PUBLIC_KEY = "6LcX0lojAAAAAJZaSKR5fW7EKqLd3RVucXyjfHDb",
-    RECAPTCHA_PRIVATE_KEY = "6LcX0lojAAAAAPdliFCn65oPpYJ2S9jwXHq5IPM-"
+    RECAPTCHA_PRIVATE_KEY = "6LcX0lojAAAAAPdliFCn65oPpYJ2S9jwXHq5IPM-",
 )
 
 db = SQLAlchemy(myapp_obj)
