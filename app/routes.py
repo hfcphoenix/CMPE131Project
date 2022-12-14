@@ -1,8 +1,8 @@
 from app import *
-from flask import render_template, redirect, flash, request
+from flask import render_template, redirect, flash, request, Response
 from app.forms import *
 from app.models import *
-from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.security import generate_password_hash
 from flask_login import current_user, login_required, login_user, logout_user
 
 # -------------------------------------------------------------------------------------------------
@@ -195,6 +195,13 @@ def update_password(id):
 
     return render_template("/update_password.html", form=form, name_to_update = name_to_update)
 
+# -------------------------------------------------------------------------------------------------
+@myapp_obj.route('/get_image/<int:id>')
+@login_required
+def get_image(id):
+    img = Post.query.filter_by(id=id).first()
+
+    return Response(img.image, content_type=img)
 # -------------------------------------------------------------------------------------------------
 
 '''
