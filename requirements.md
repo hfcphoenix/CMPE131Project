@@ -5,13 +5,14 @@
 3. Create new account = Alexander ✓
 4. Delete Account = Shubham ✓
 5. User home page (user can see messages of users they follow) = Marcus, Alexander, Henry, & Shubham ✓
-6. Send message to followers  = Alexander ✓
+6. Publish posts to followers  = Alexander ✓
 7. Multiple Sign Up Options (Email, Social Media) (Connect with any external API) = Henry or Marcus X
 8. Post image with Message = Marcus and Shubham ✓
 9. Delete Post = Marcus and Henry ✓
 10. Password Reset = Shubham ✓
 11. Search for other Users = Henry or Marcus X
 12. Users should be able to follow each other = Alexander and Shubham ✓
+13. reCAPTCHA = Alexander ✓
 
 ## Non-functional Requirements
 1. Optimized for 16:9 aspect ratio on chromium browsers
