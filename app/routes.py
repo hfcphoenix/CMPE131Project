@@ -69,22 +69,21 @@ def create_account():
 @myapp_obj.route('/create_post', methods = ['GET', 'POST'])
 @login_required
 def create_post():
-    if request.method == "POST":
+    if request.method == "POST": # retriving text from text box when submit is hit
         file = request.files['posted']
         text = request.form.get('text')
         
         if text == ' ':
-            print('we here')
             flash('Post cannot be empty', category = 'error')
         
-        elif file:
+        elif file: # when there is a file present will pass through this
             post_with_image = Post(text = text, author_id = current_user.id, author_str = current_user.username, image_name = file.filename, image = file.read())
             db.session.add(post_with_image)
             db.session.commit()
             flash('Post created!', category = 'success')
             return redirect('/homepage')
 
-        else:
+        else: # this is if post is empty
             post = Post(text = text, author_id = current_user.id, author_str = current_user.username, image_name = None, image = None)
             db.session.add(post)
             db.session.commit()
