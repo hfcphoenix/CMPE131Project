@@ -16,8 +16,8 @@ def home():
 @myapp_obj.route('/add_following', methods = ['POST', 'GET'])
 @login_required
 def add_following():
-    current_form = AddFollowingForm()
-    user = User.query.all()
+    current_form = AddFollowingForm() # initializes add following form
+    user = User.query.all() # lets us display all users in the database and pass it to the template
 
     if request.method == "POST":
         option = request.form.get('users')
@@ -95,10 +95,10 @@ def create_post():
 
 # -------------------------------------------------------------------------------------------------
 
-@myapp_obj.route('/delete/<int:id>')
+@myapp_obj.route('/delete/<int:id>') # deletes account
 @login_required
 def delete_account(id):
-    if id == current_user.id:
+    if id == current_user.id: # compares against current user
         db.session.delete(current_user)
         db.session.commit()
         return redirect('/create_account')
@@ -110,7 +110,7 @@ def delete_account(id):
 @myapp_obj.route('/delete_post/<int:id>')
 @login_required
 def delete_post(id):
-    post = Post.query.filter_by(id = id).first()
+    post = Post.query.filter_by(id = id).first() #queries the values according to an id that matches the database
     if post.author_id != current_user.id:
         flash('Cannot delete this post')
         return redirect('/homepage')
@@ -124,7 +124,6 @@ def delete_post(id):
 @myapp_obj.route('/homepage', methods = ['POST', 'GET'])
 @login_required
 def homepage():
-    #posts = Post.query.all()
     posts = current_user.followed_posts()
     return render_template("homepage.html", username = current_user.username, posts = posts)
 
@@ -135,7 +134,7 @@ def login():
     current_form = LoginForm()
 
     if current_form.validate_on_submit():
-        user = User.query.filter_by(username = current_form.username.data).first()
+        user = User.query.filter_by(username = current_form.username.data).first() #validates whether user is new to database
 
         if user is None or not user.check_password(current_form.password.data):
             flash('Invalid password!')
@@ -196,10 +195,10 @@ def update_password(id):
     return render_template("/update_password.html", form=form, name_to_update = name_to_update)
 
 # -------------------------------------------------------------------------------------------------
-@myapp_obj.route('/get_image/<int:id>')
+@myapp_obj.route('/get_image/<int:id>') #gets the images shown on homepage to display
 @login_required
 def get_image(id):
-    img = Post.query.filter_by(id=id).first()
+    img = Post.query.filter_by(id=id).first() #uses the post id to find the right image to display
 
     return Response(img.image, content_type=img)
 # -------------------------------------------------------------------------------------------------
