@@ -7,7 +7,7 @@
 5. User home page (user can see messages of users they follow) = Marcus, Alexander, Henry, & Shubham ✓
 6. Publish posts to followers  = Alexander ✓
 7. Multiple Sign Up Options (Email, Social Media) (Connect with any external API) = Henry or Marcus X
-8. Post image with Message = Marcus and Shubham ✓
+8. Post image with Message = Shubham ✓
 9. Delete Post = Marcus and Henry ✓
 10. Password Reset = Shubham ✓
 11. Search for other Users = Henry or Marcus X
